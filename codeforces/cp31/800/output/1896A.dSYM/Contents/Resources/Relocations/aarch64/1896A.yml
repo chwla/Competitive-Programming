@@ -1,0 +1,9 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/chwla/Desktop/Competitive-Programming/codeforces/cp31/800/output/1896A'
+relocations:
+  - { offset: 0x29C51, size: 0x8, addend: 0x0, symName: __ZStL8__ioinit, symObjAddr: 0xC4867, symBinAddr: 0x100008000, symSize: 0x0 }
+  - { offset: 0x2A661, size: 0x8, addend: 0x0, symName: __GLOBAL__sub_I_1896A.cpp, symObjAddr: 0x200, symBinAddr: 0x100000740, symSize: 0x38 }
+  - { offset: 0x2A679, size: 0x8, addend: 0x0, symName: __GLOBAL__sub_I_1896A.cpp, symObjAddr: 0x200, symBinAddr: 0x100000740, symSize: 0x38 }
+  - { offset: 0x2AB9B, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x60, symBinAddr: 0x100000780, symSize: 0x184 }
+...
