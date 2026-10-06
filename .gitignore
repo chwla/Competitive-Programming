@@ -1,3 +1,14 @@
-*/output
-.vscode
+# macOS
 .DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Compiled binaries / build output
+**/output/
+*.exe
+*.out
+*.o
+*.dSYM/
+a.out
