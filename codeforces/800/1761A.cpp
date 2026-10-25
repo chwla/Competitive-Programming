@@ -7,7 +7,7 @@ int main(){
     while(t--){
         int n, a, b;
         cin >> n >> a >> b;
-        if((a == n && b == n) || (a + b - n >= 2)) cout << "YES" << endl;
+        if((a == n && b == n) || (n-a-b >= 2)) cout << "YES" << endl;
         else cout << "NO" << endl;
     }
 }
