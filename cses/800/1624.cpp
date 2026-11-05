@@ -1,43 +1,48 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string board[8];
-int queenColumn[8];
-int ways = 0;
+bool is_safe(const vector<string>& board, int r, int c) {
+    if (board[r][c] == '*') return false;
 
-void search(int row) {
-    if (row == 8) {
-        ways++;
+    for (int j = c - 1; j >= 0; j--) {
+        if (board[r][j] == 'Q') return false;
+    }
+
+    for (int i = r - 1, j = c - 1; i >= 0 && j >= 0; i--, j--) {
+        if (board[i][j] == 'Q') return false;
+    }
+
+    for (int i = r + 1, j = c - 1; i < 8 && j >= 0; i++, j--) {
+        if (board[i][j] == 'Q') return false;
+    }
+
+    return true;
+}
+
+void solve(vector<string>& board, int c, int& answer) {
+    if (c == 8) {
+        answer++;
         return;
     }
 
-    for (int col = 0; col < 8; col++) {
-        if (board[row][col] == '*') continue;
-
-        bool valid = true;
-
-        for (int previousRow = 0; previousRow < row; previousRow++) {
-            int previousCol = queenColumn[previousRow];
-
-            if (previousCol == col ||
-                abs(previousCol - col) == abs(previousRow - row)) {
-                valid = false;
-                break;
-            }
-        }
-
-        if (valid) {
-            queenColumn[row] = col;
-            search(row + 1);
+    for (int r = 0; r < 8; r++) {
+        if (is_safe(board, r, c)) {
+            board[r][c] = 'Q';
+            solve(board, c + 1, answer);
+            board[r][c] = '.';
         }
     }
 }
 
 int main() {
-    for (int i = 0; i < 8; i++) {
-        cin >> board[i];
+    vector<string> board(8);
+
+    for (string& row : board) {
+        cin >> row;
     }
 
-    search(0);
-    cout << ways << '\n';
+    int answer = 0;
+    solve(board, 0, answer);
+
+    cout << answer << '\n';
 }
